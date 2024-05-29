@@ -1,0 +1,64 @@
+package com.example.keyce_springboot_api_livres.db;
+
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
+@Table(name = "livres")
+public class Livre {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    private String titre;
+    private String anneePublication;
+
+    @ManyToOne
+    private Auteur auteur;
+
+    @ManyToMany
+    private List<Categorie> categories = new ArrayList<>();
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getTitre() {
+        return titre;
+    }
+
+    public void setTitre(String titre) {
+        this.titre = titre;
+    }
+
+    public String getAnneePublication() {
+        return anneePublication;
+    }
+
+    public void setAnneePublication(String anneePublication) {
+        this.anneePublication = anneePublication;
+    }
+
+    public Auteur getAuteur() {
+        return auteur;
+    }
+
+    public void setAuteur(Auteur auteur) {
+        this.auteur = auteur;
+    }
+
+    public List<Categorie> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<Categorie> categories) {
+        this.categories = categories;
+    }
+}
