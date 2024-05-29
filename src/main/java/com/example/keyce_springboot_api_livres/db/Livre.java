@@ -61,4 +61,8 @@ public class Livre {
     public void setCategories(List<Categorie> categories) {
         this.categories = categories;
     }
+
+    public void addCategorie(Categorie categorie){
+        categories.add(categorie);
+    }
 }
