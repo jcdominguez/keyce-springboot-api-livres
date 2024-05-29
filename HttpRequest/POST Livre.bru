@@ -1,0 +1,25 @@
+meta {
+  name: POST Livre
+  type: http
+  seq: 4
+}
+
+post {
+  url: http://localhost:8080/api/livres
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "titre":"bla bla bla",
+    "auteur":{
+      "id":3
+    },
+    "categories":[
+      {
+        "id":4
+      }
+    ]
+  }
+}

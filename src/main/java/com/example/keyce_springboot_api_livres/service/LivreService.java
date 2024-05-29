@@ -1,8 +1,10 @@
-package com.example.keyce_springboot_api_livres.db.service;
+package com.example.keyce_springboot_api_livres.service;
 
 import com.example.keyce_springboot_api_livres.db.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class LivreService {
@@ -24,5 +26,9 @@ public class LivreService {
 
     public void createLivre(Livre livre){
         livreRepository.save(livre);
+    }
+
+    public List<Livre> getLivres() {
+        return livreRepository.findAll();
     }
 }

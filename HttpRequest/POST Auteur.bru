@@ -1,0 +1,18 @@
+meta {
+  name: POST Auteur
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:8080/api/auteurs
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "prenom":"Jean-Christophe",
+    "nom":"Dominguez"
+  }
+}

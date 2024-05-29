@@ -1,0 +1,25 @@
+meta {
+  name: GET Livres
+  type: http
+  seq: 5
+}
+
+get {
+  url: http://localhost:8080/api/livres
+  body: none
+  auth: none
+}
+
+body:json {
+  {
+    "titre":"bla bla bla",
+    "auteur":{
+      "id":3
+    },
+    "categories":[
+      {
+        "id":4
+      }
+    ]
+  }
+}
