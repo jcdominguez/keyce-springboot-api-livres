@@ -16,9 +16,10 @@ public class Livre {
     private String titre;
     private String anneePublication;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Auteur auteur;
 
+    // @ManyToMany(cascade = CascadeType.ALL)
     @ManyToMany
     private List<Categorie> categories = new ArrayList<>();
 

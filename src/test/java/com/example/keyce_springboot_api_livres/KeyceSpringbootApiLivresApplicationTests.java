@@ -4,9 +4,12 @@ import com.example.keyce_springboot_api_livres.db.Auteur;
 import com.example.keyce_springboot_api_livres.db.Categorie;
 import com.example.keyce_springboot_api_livres.db.Livre;
 import com.example.keyce_springboot_api_livres.service.LivreService;
+import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.List;
 
 @SpringBootTest
 class KeyceSpringbootApiLivresApplicationTests {
@@ -54,5 +57,15 @@ class KeyceSpringbootApiLivresApplicationTests {
 		livre.addCategorie(categorie1);
 		livre.addCategorie(categorie2);
 		livreService.createLivre(livre);
+	}
+
+	@Test
+	@Transactional
+	void testLazyMode(){
+		List<Livre> livres = livreService.getLivres();//requete SQL
+		Livre livre = livres.get(0);
+		System.out.println(livre.getTitre());
+
+		System.out.println(livre.getAuteur().getNom());//requete SQL
 	}
 }
