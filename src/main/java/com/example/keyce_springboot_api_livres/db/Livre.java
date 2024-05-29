@@ -14,7 +14,7 @@ public class Livre {
     private Integer id;
 
     private String titre;
-    private String anneePublication;
+    private Integer anneePublication;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Auteur auteur;
@@ -39,11 +39,11 @@ public class Livre {
         this.titre = titre;
     }
 
-    public String getAnneePublication() {
+    public Integer getAnneePublication() {
         return anneePublication;
     }
 
-    public void setAnneePublication(String anneePublication) {
+    public void setAnneePublication(Integer anneePublication) {
         this.anneePublication = anneePublication;
     }
 

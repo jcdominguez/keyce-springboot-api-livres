@@ -3,6 +3,7 @@ package com.example.keyce_springboot_api_livres;
 import com.example.keyce_springboot_api_livres.db.Auteur;
 import com.example.keyce_springboot_api_livres.db.Categorie;
 import com.example.keyce_springboot_api_livres.db.Livre;
+import com.example.keyce_springboot_api_livres.db.LivreRepository;
 import com.example.keyce_springboot_api_livres.service.LivreService;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
@@ -16,6 +17,9 @@ class KeyceSpringbootApiLivresApplicationTests {
 
 	@Autowired
 	LivreService livreService;
+
+	@Autowired
+	LivreRepository livreRepository;
 
 	@Test
 	void testCreateAuteur() {
@@ -67,5 +71,43 @@ class KeyceSpringbootApiLivresApplicationTests {
 		System.out.println(livre.getTitre());
 
 		System.out.println(livre.getAuteur().getNom());//requete SQL
+	}
+
+	/*
+	@Test
+	void testQuery(){
+		Livre livre = new Livre();
+		livre.setTitre("Livre 1");
+		livre.setAnneePublication(1985);
+		livreService.createLivre(livre);
+
+		Livre livre2 = new Livre();
+		livre2.setTitre("Livre 2");
+		livre2.setAnneePublication(1970);
+		livreService.createLivre(livre2);
+
+		List<Livre> livres = livreRepository.findLivresAnneesParDecennie(1979, 1990);
+		for(Livre l : livres){
+			System.out.println(l.getTitre());
+		}
+	}
+	 */
+
+	@Test
+	void testNativeQuery(){
+		Livre livre = new Livre();
+		livre.setTitre("Livre 1");
+		livre.setAnneePublication(1985);
+		livreService.createLivre(livre);
+
+		Livre livre2 = new Livre();
+		livre2.setTitre("Livre 2");
+		livre2.setAnneePublication(1970);
+		livreService.createLivre(livre2);
+
+		List<Livre> livres = livreRepository.findLivresAnnees80();
+		for(Livre l : livres){
+			System.out.println(l.getTitre());
+		}
 	}
 }
