@@ -92,7 +92,6 @@ class KeyceSpringbootApiLivresApplicationTests {
 		}
 	}
 
-
 	@Test
 	void testNativeQuery(){
 		Livre livre = new Livre();
