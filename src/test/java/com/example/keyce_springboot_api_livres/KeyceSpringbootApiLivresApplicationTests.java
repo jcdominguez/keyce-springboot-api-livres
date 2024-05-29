@@ -73,7 +73,7 @@ class KeyceSpringbootApiLivresApplicationTests {
 		System.out.println(livre.getAuteur().getNom());//requete SQL
 	}
 
-	/*
+
 	@Test
 	void testQuery(){
 		Livre livre = new Livre();
@@ -91,7 +91,7 @@ class KeyceSpringbootApiLivresApplicationTests {
 			System.out.println(l.getTitre());
 		}
 	}
-	 */
+
 
 	@Test
 	void testNativeQuery(){

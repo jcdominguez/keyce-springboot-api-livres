@@ -14,8 +14,8 @@ public interface LivreRepository extends JpaRepository<Livre, Integer> {
     List<Livre> findAllByTitre(String titre);
 
     //Query method
-    //@Query(value = "SELECT l FROM Livre WHERE l.anneePublication > :anneeDebut AND l.annePublication < :anneeFin")
-    //List<Livre> findLivresAnneesParDecennie(@Param("anneeDebut") Integer anneeDebut, @Param("anneeFin") Integer anneeFin);
+    @Query(value = "SELECT l FROM Livre l WHERE l.anneePublication > :anneeDebut AND l.anneePublication < :anneeFin")
+    List<Livre> findLivresAnneesParDecennie(@Param("anneeDebut") Integer anneeDebut, @Param("anneeFin") Integer anneeFin);
 
     // Native Query
     @Query(value = "SELECT * FROM livres WHERE annee_publication > 1979 AND annee_publication < 1990", nativeQuery = true)
